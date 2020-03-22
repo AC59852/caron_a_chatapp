@@ -11,24 +11,64 @@
 <body>
 	<main id="app">
 		<section class="form-container">
-			<label for="nickname">Your Nickname (optional)</label>
-			<input type="text" id="nickname" class="nickname" placeholder="What is your nickname?">
+			<label for="nickName">Your Nickname (optional)</label>
+			<input  v-model='nickname' type="text" id="nickname" class="nickname" placeholder="Type cool nickname here">
 
 			<form>
 				<label for="message">Something to say?</label>
-				<textarea class="message" type="text" autocomplete="off" id="textarea"></textarea>
-				<input type="submit">
+				<textarea v-model="message" class="message mainText" type="text" autocomplete="off" id="textarea"></textarea>
+				<h2>(If you would like to put an emoji after your text, please put a space after the emoji, thank you)</h2>
+				<p class="newText">😀</p>
+				<p class="newText">😁</p>
+				<p class="newText">😂</p>
+				<p class="newText">🤣</p>
+				<p class="newText">😃</p>
+				<p class="newText">😄</p>
+				<p class="newText">😅</p>
+				<p class="newText">😆</p>
+				<p class="newText">😉</p>
+				<p class="newText">😊</p>
+				<p class="newText">😋</p>
+				<p class="newText">😎</p>
+				<p class="newText">😍</p>
+				<p class="newText">😘</p>
+				<p class="newText">🥰</p>
+				<p class="newText">😗</p>
+				<p class="newText">🙂</p>
+				<p class="newText">🤗</p>
+				<p class="newText">🤔</p>
+				<p class="newText">🤨</p>
+				<p class="newText">😐</p>
+				<p class="newText">😑</p>
+				<p class="newText">😶</p>
+				<p class="newText">🙄</p>
+				<p class="newText">😏</p>
+				<p class="newText">😥</p>
+				<p class="newText">😮</p>
+				<p class="newText">🤐</p>
+				<p class="newText">😴</p>
+				<p class="newText">😛</p>
+				<p class="newText">🙁</p>
+				<p class="newText">😭</p>
+				<p class="newText">😨</p>
+				<p class="newText">😬</p>
+				<p class="newText">😳</p>
+				<p class="newText">😡</p>
+				<p class="newText">😱</p>
+				<input @click.prevent="dispatchMessage" id="submit" type="submit" value="Submit">
 			</form>
 		</section>
 
 		<section class="messages">
-			<ul id="messages">
+			<ul id="messages" v-for="message in messages">
 				<!-- render a new message component for every message -->
+				<newMessage :msg="message"></newMessage>
 			</ul>
+			<p v-if="typing" class="text-typing">{{typing}} is typing...</p>
 		</section>
 	</main>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script type="module" src="js/main_vm.js"></script>
 </body>
-
 </html>
