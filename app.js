@@ -17,25 +17,32 @@ const server = app.listen(port, () => {
 
 // this is all of the socket io functionality
 io.attach(server);
+io.on('connection', function(socket){ //socket is your connection
+    console.log('a  user has connected');
 
-io.on('connection', function(socket){
-    console.log('a user connected');
-    socket.emit('connected', { sID: `${socket.id}`, message: 'new connection'});
 
-    // listen for an incoming message from a user (socket refers to an individual user)
-    socket.on('chat_message', function(msg) {
-        console.log(msg);
-        
-        //when we get a new message, send it to everyone so they see it
-        io.emit('new_message', {id: socket.id, message: msg});
+		 
+	
+    
+    socket.emit('connected', {sID: socket.id, message: " new connection"});
+
+    socket.on('chat_message', function(msg){
+        console.log(msg); // let's see what the playload is form the client side
+        //tell the conneciton manager (socket.io) to send this messsage to everyone
+        // anyone connected to our chat app will get this message (including the sender)
+        io.emit('new_message', {id: socket.id, message: msg });
+       
     })
 
-    // listen for a disconnect event
-    socket.on('disconnect', function() {
-        console.log("a user disconnected")
-        
-        message = `${socket.id} has left the chat.`;
-        io.emit('user_disconnect', message);
-    });
+    socket.on('typing', (data) => {
+        io.emit('typing', data);
+      });
+      socket.on('stoptyping', () => {
+        io.emit('stoptyping');
+      });
 
-  });
+    socket.on('disconnect', function(){
+        console.log('a user has disconnected');
+    })
+    	
+})
