@@ -3,7 +3,10 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Socket IO Chat with Node!</title>
+	<link href="https://fonts.googleapis.com/css2?family=Lato&family=Nunito+Sans:wght@300;400&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/main.css">
 	<script src="https://unpkg.com/vue"></script>
 </head>
@@ -11,8 +14,11 @@
 <body>
 	<main id="app">
 		<section class="form-container">
-			<label for="nickName">Your Nickname (optional)</label>
-			<input  v-model='nickname' type="text" id="nickname" class="nickname" placeholder="Type cool nickname here">
+			<div class="nickCon">
+				<label for="nickName">What Do You Go By?</label>
+				<input  v-model='nickname' type="text" id="nickname" class="nickname" placeholder="Type cool nickname here">
+				<div @click="hide"><p>Head In</p></div>
+			</div>
 
 			<form>
 				<label for="message">Something to say?</label>

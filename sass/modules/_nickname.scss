@@ -1,0 +1,59 @@
+.nickCon {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transition: left 1s cubic-bezier(0.22, 1, 0.36, 1);
+    label {
+        color: white;
+        font-size: 9vw;
+        font-weight: bold;
+        text-align: center;
+        font-family: 'Nunito Sans', sans-serif;
+    }
+    input {
+        width: 60%;
+        margin: 20% auto;
+        text-align: center;
+        background-color: transparent;
+        border: none;
+        border-bottom: 3px solid white;
+        color: white;
+        font-family: 'Lato', sans-serif;
+        font-size: 7vw;
+        letter-spacing: 0.2vw;
+    }
+    div {
+        width: 30%;
+        margin: 0 auto;
+        border: white solid 2px;
+        padding: 5%;
+        transition: color, background-color 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        cursor: pointer;
+        p {
+            color: white;
+            font-family: 'Lato';
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5vw;
+            font-size: 4.5vw;
+            cursor: pointer;
+        }
+        &:hover {
+            background-color: white;
+            p {
+                color: black;
+            }
+        }
+    }
+}
+
+.hide {
+    left: -100%;
+}
