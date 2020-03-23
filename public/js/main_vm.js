@@ -36,6 +36,10 @@ const vm = new Vue({
       },
     
       created() {
+        socket.on('connected', () => {
+            
+        }) 
+
         socket.on('typing', (data) => {
           console.log(data);
           this.typing = data || 'Anonymous';
@@ -47,8 +51,15 @@ const vm = new Vue({
 
 
     methods:{
+
+        hide() {
+            let nicknameCon = document.querySelector('.nickCon');
+
+            nicknameCon.classList.toggle('hide');
+        },
         //emit a message event to the server so that is 
         // can in turn sent this to enyone who's connectoed
+
         dispatchMessage(){
             console.log('handle emit message');
         // the double pipe || is an "or" operator

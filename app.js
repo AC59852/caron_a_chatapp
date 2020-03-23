@@ -20,10 +20,10 @@ io.attach(server);
 io.on('connection', function(socket){ //socket is your connection
     console.log('a  user has connected');
 
+    socket.on('create', function(room) {
+        socket.join(room);
+      });
 
-		 
-	
-    
     socket.emit('connected', {sID: socket.id, message: " new connection"});
 
     socket.on('chat_message', function(msg){
