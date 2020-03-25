@@ -23,6 +23,12 @@
     animation: revealAlert 2s linear;
 }
 
+.typing {
+    font-family: 'Nunito Sans';
+    font-size: 4.2vw;
+    margin-left: 2%;
+}
+
 @keyframes revealAlert {
     0% {opacity: 0;}
     40% {opacity: 1;}

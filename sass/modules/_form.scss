@@ -16,16 +16,29 @@
         p {
             cursor: pointer;
         }
+        scrollbar-width: none;
+    }
+
+    .emojiCon::-webkit-scrollbar {
+        display: none;
+    }
+
+    h2 {
+        font-family: 'Lato';
+        font-size: 4.2vw;
+        text-align: center;
+        margin-top: 2%;
     }
 
     textarea {
         border: none;
-        border-top: 3px solid #222;
-        border-bottom: 3px solid #222;
+        border: 3px solid #222;
+        border-radius: 3vw;
         padding: 2%;
         height: 10vh;
         resize: none;
         font-family: 'Lato';
+        scrollbar-width: none;
     }
 
     .typing {

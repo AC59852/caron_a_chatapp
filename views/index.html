@@ -23,8 +23,8 @@
 			</div>
 
 			<form class="inputForm">
-				<p v-if="typing" class="typing">{{typing}} is typing...</p>
-				<textarea v-model="message" class="message mainText" type="text" autocomplete="off" id="textarea"></textarea>
+				<p v-if="typing" class="typing">{{typing}} is typing . . .</p>
+				<textarea maxlength="200" v-model="message" class="message mainText" type="text" autocomplete="off" id="textarea"></textarea>
 				<h2>(If you would like to put an emoji after your text, please put a space after the emoji, thank you)</h2>
 				<div class="emojiCon">
 				<p class="emoji">😀</p>
