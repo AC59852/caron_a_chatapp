@@ -2,17 +2,33 @@
     span { font-size: 0.8rem; display: block; margin-bottom: 2px; }
 
     width: 45%;
-    padding: 8px 12px;
+    padding: 3% 5% 4%;
+    word-break: break-all;
     background-color: white; 
-    border-radius: 8px;
+    border-radius: 4vw;
     margin-bottom: 1rem;
-
-    float:left;
     clear: both;
+    font-family: 'Lato';
+    font-size: 4.5vw;
+    letter-spacing: 0.1vw;
+    background-color: #333;
+    color: white;
+    span {
+        font-size: 4.5vw;
+        margin-bottom: 5%;
+    }
 }
 
 .my-message {
-    float: right !important;
-    background-color: #86bf9d;
+    margin-left: auto;
+    background-color: #222;
     color: white;
+}
+
+.messages {
+    margin: 0 auto;
+    width: 97%;
+    height: 55vh;
+    overflow-y: scroll;
+    padding-top: 4%;
 }
