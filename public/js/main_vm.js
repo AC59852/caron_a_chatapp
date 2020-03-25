@@ -25,7 +25,7 @@ const vm = new Vue({
         message: "",
         nickname: "anonymous",
         messages:[],
-        typing: false   
+        typing: false,
         
     },
 
@@ -36,18 +36,41 @@ const vm = new Vue({
       },
     
       created() {
-        socket.on('connected', () => {
-            
-        }) 
 
+        // display a message when someone connects
+
+        // check to see if someone is typing
         socket.on('typing', (data) => {
           console.log(data);
           this.typing = data || 'Anonymous';
+          document.querySelector(".typing").classList.add('typingfade');
         });
         socket.on('stoptyping', () => {
           this.typing = false;
         });
+        socket.on('broadcast',function(data) {
+            let userAlert = document.querySelector('.userAlert');
+
+            userAlert.textContent = data.description;
+            userAlert.classList.add('revealAnim');
+
+            userAlert.addEventListener('animationend', function() {
+                userAlert.classList.remove('revealAnim');
+            });
+         });
+
+         socket.on('broadcast2',function(data) {
+            let userAlert2 = document.querySelector('.userAlert2');
+
+            userAlert2.textContent = data.description2;
+            userAlert2.classList.add('revealAnim');
+
+            userAlert2.addEventListener('animationend', function() {
+                userAlert2.classList.remove('revealAnim');
+            });
+         });
       },
+      
 
 
     methods:{
@@ -68,14 +91,18 @@ const vm = new Vue({
         if (this.message != "") {
             socket.emit('chat_message', {
                 content: this.message,
-                name: this.nickname || 'anonymous'
+                name: this.nickname || 'anonymous',
             });
+            // remove anything in the chat box when submitting message
             this.message = "";
         } 
         },
+
+        // display who is typing
         isTyping() {
             socket.emit('typing', this.nickname);
           },
+
     },
     mounted(){
         console.log('vue is done mounting');
@@ -84,7 +111,7 @@ const vm = new Vue({
 
         // the reason this isn't running in methods, is that you can't apply a foreach loop without all objects
         // adding to the textarea, since it runs each time any object is clicked with that class.
-        $('.newText').each(function(index) {
+        $('.emoji').each(function(index) {
             $(this).on("click", function() {
 
                 var items = $(this).text();
