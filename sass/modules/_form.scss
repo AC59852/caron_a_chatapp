@@ -1,0 +1,57 @@
+.inputForm {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+
+    .emojiCon {
+        order: -1;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        line-height: 14vw;
+        font-size: 9vw;
+        overflow: scroll;
+        height: 9.5vh;
+        p {
+            cursor: pointer;
+        }
+    }
+
+    textarea {
+        border: none;
+        border-top: 3px solid #222;
+        border-bottom: 3px solid #222;
+        padding: 2%;
+        height: 10vh;
+        resize: none;
+        font-family: 'Lato';
+    }
+
+    .typing {
+        order: -1;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    #submit {
+        width: 40%;
+        margin: 5% auto;
+        border: black solid 2px;
+        padding: 3% 0 2.5%;
+        font-family: 'Lato';
+        font-size: 5.5vw;
+        font-weight: bold;
+        text-transform: uppercase;
+        background-color: transparent;
+        letter-spacing: 0.3vw;
+    }
+}
+
+.typingfade {
+    opacity: 1 !important;
+    transition: opacity 0.5s ease-in-out;
+}
+
+
+

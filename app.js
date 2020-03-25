@@ -20,9 +20,10 @@ io.attach(server);
 io.on('connection', function(socket){ //socket is your connection
     console.log('a  user has connected');
 
-    socket.on('create', function(room) {
-        socket.join(room);
-      });
+    io.sockets.emit('broadcast',{ description: 'Someone Connected'});
+    socket.on('disconnect', function () {
+       io.sockets.emit('broadcast2',{ description2: 'Someone Left'});
+    });
 
     socket.emit('connected', {sID: socket.id, message: " new connection"});
 
@@ -32,7 +33,7 @@ io.on('connection', function(socket){ //socket is your connection
         // anyone connected to our chat app will get this message (including the sender)
         io.emit('new_message', {id: socket.id, message: msg });
        
-    })
+    });
 
     socket.on('typing', (data) => {
         io.emit('typing', data);
