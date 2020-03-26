@@ -68,3 +68,57 @@
         width: 85%;
     }
 }
+
+@media screen and (min-width: 1440px) {
+    .inputForm {
+        textarea {
+            height: 13.5vh;
+            width: 33%;
+            font-size: 1.7vw;
+            border-radius: 0.5vw;
+            padding: 1%;
+        }
+
+        .emojiCon {
+            width: 35%;
+            line-height: 3.4vw;
+            height: 7vw;
+            font-size: 2.5vw;
+        }
+
+        h2 {
+            font-size: 1.2vw;
+            width: 34%;
+            margin: 1% auto;
+        }
+
+        #submit {
+            margin-top: 0;
+            width: 12%;
+            letter-spacing: 0.1vw;
+            font-size: 1.4vw;
+            padding: 1% 0 0.8%;
+        }
+
+    }
+
+    .messages {
+        height: 92vh;
+        padding-top: 2%;
+
+        .new-message {
+            width: 20%;
+            padding: 1% 2%;
+            border-radius: 1.2vw;
+            font-size: 1.5vw;
+            margin-left: 3%;
+        }
+
+        .my-message {
+            margin-right: 3%;
+        }
+        span {
+            font-size: 1.5vw;
+        }
+    }
+}

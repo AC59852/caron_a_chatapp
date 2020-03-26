@@ -121,10 +121,6 @@ const vm = new Vue({
             });
         });
 
-        if (document.getElementById("fixed") == document.activeElement) {
-            document.getElementById("fixed").class += "absolute"
-        }
-
 
     },
 
