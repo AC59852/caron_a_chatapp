@@ -4,3 +4,11 @@
 @import 'modules/_form';
 @import 'modules/_alerts';
 @import 'modules/_queries';
+
+#fixed {
+    position: fixed;
+}
+
+#fixed.absolute {
+    position: absolute;
+}
