@@ -100,7 +100,7 @@ const vm = new Vue({
         // whatver comes after the "or " operator
         if (this.message != "") {
             socket.emit('chat_message', {
-                content: this.message,
+                userMessage: this.message,
                 name: this.nickname || 'anonymous',
             });
             // remove anything in the chat box when submitting message
