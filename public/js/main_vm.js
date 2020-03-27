@@ -45,27 +45,35 @@ const vm = new Vue({
           this.typing = data || 'Anonymous';
           document.querySelector(".typing").classList.add('typingfade');
         });
+
+        // check to see if someone stopped typing
         socket.on('stoptyping', () => {
           this.typing = false;
         });
+
+        // if someone connected, display the alert
         socket.on('broadcast',function(data) {
             let userAlert = document.querySelector('.userAlert');
 
             userAlert.textContent = data.description;
             userAlert.classList.add('revealAnim');
 
+
+            // after the animation ends, remove the text from the alert as to not conflict with the page
             userAlert.addEventListener('animationend', function() {
                 userAlert.classList.remove('revealAnim');
                 userAlert.textContent = "";
             });
          });
 
+         // if someone disconnects, display the alert
          socket.on('broadcast2',function(data) {
             let userAlert2 = document.querySelector('.userAlert2');
 
             userAlert2.textContent = data.description2;
             userAlert2.classList.add('revealAnim');
 
+            //after the animation ends, remove the text from the alert as to not conflict with the page
             userAlert2.addEventListener('animationend', function() {
                 userAlert2.classList.remove('revealAnim');
                 userAlert2.textContent = "";
@@ -92,7 +100,7 @@ const vm = new Vue({
         // whatver comes after the "or " operator
         if (this.message != "") {
             socket.emit('chat_message', {
-                content: this.message,
+                userMessage: this.message,
                 name: this.nickname || 'anonymous',
             });
             // remove anything in the chat box when submitting message
@@ -105,24 +113,18 @@ const vm = new Vue({
             socket.emit('typing', this.nickname);
           },
 
+          emoji(event) {
+
+            // this is checking the data-value property of each p tag when clicked
+            let emoji = event.target.dataset.value;
+
+            // and setting the value of the message to be whatever is in the box + the clicked emoji
+            this.message = this.message + emoji;
+          }
+
     },
     mounted(){
         console.log('vue is done mounting');
-        // Using a mix of plain JavaScript and jQuery, this allows the user to add emojis into the text box
-        // without removing anything that they type inside, before or after choosing an emoji
-
-        // the reason this isn't running in methods, is that you can't apply a foreach loop without all objects
-        // adding to the textarea, since it runs each time any object is clicked with that class.
-        $('.emoji').each(function(index) {
-            $(this).on("click", function() {
-
-                var items = $(this).text();
-                var textarea = document.querySelector(".mainText");
-
-                textarea.value += items;
-            });
-        });
-
 
     },
 
