@@ -56,6 +56,7 @@ const vm = new Vue({
 
             userAlert.addEventListener('animationend', function() {
                 userAlert.classList.remove('revealAnim');
+                userAlert.textContent = "";
             });
          });
 
@@ -67,6 +68,7 @@ const vm = new Vue({
 
             userAlert2.addEventListener('animationend', function() {
                 userAlert2.classList.remove('revealAnim');
+                userAlert2.textContent = "";
             });
          });
       },

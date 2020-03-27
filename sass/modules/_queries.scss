@@ -67,9 +67,81 @@
         height: 56.4vh;
         width: 85%;
     }
+
+    .nickCon {
+        div {
+            width: 26%;
+            padding: 4%;
+            p {
+                font-size: 4vw;
+            }
+        }
+        label {
+            font-size: 8vw;
+        }
+
+        input {
+            font-size: 6vw;
+            width: 51%;
+        }
+    }
+
+    .userAlert, .userAlert2 {
+        width: 50%;
+        padding: 5% 0 5% 0;
+        font-size: 3.3vw;
+    }
+
+    .userAlert2 {
+        top: 21%;
+    }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1024px) {
+    .userAlert, .userAlert2 {
+        width: 44%;
+        padding: 4% 0;
+        font-size: 3vw;
+        border-radius: 1vw;
+    }
+
+    .userAlert2 {
+        top: 16%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    .userAlert, .userAlert2 {
+        font-size: 1.6vw;
+        width: 24%;
+        padding: 2% 0;
+    }
+
+    .userAlert2 {
+        top: 17%;
+    }
+
+    .nickCon {
+        label {
+            font-size: 6.5vw;
+        }
+
+        input {
+            margin: 10% auto;
+            font-size: 3.8vw;
+            width: 35%;
+        }
+
+        div {
+            width: 16%;
+            padding: 2% 0;
+            p {
+                font-size: 2vw;
+            }
+        }
+
+    }
     .inputForm {
         textarea {
             height: 13.5vh;
@@ -77,6 +149,11 @@
             font-size: 1.7vw;
             border-radius: 0.5vw;
             padding: 1%;
+        }
+
+        .typing {
+            font-size: 1.6vw;
+            width: 34%;
         }
 
         .emojiCon {
@@ -120,5 +197,75 @@
         span {
             font-size: 1.5vw;
         }
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .nickCon {
+        label {
+            font-size: 5.3vw;
+        }
+
+        input {
+            margin: 8% auto;
+            width: 29%;
+            font-size: 2.5vw;
+        }
+        div {
+            width: 13%;
+            padding: 1.4% 0;
+            p {
+                font-size: 1.4vw;
+            }
+        }
+    }
+
+    .inputForm {
+        .emojiCon {
+            height: 4.6vw;
+            font-size: 2vw;
+            width: 29%;
+            line-height: 3.3vw;
+        }
+
+        textarea {
+            width: 29%;
+            font-size: 1.3vw;
+            padding: 0.5%;
+        }
+        .typing {
+            font-size: 1.2vw;
+            width: 30%;
+        }
+
+        h2 {
+            font-size: 1vw;
+            width: 30%;
+        }
+
+        #submit {
+            width: 9%;
+            font-size: 1.2vw;
+        }
+    }
+
+    .messages {
+        .new-message {
+            width: 17%;
+            padding: 1% 1.5%;
+            border-radius: 0.6vw;
+            font-size: 1.2vw;
+        }
+
+        span {
+            font-size: 1.2vw;
+        }
+    }
+
+    .userAlert, .userAlert2 {
+        width: 21%;
+        padding: 1.5% 0;
+        border-radius: 0.6vw;
+        font-size: 1.3vw;
     }
 }
