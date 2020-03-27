@@ -44,7 +44,9 @@ in your Terminal, gitbash, or Visual Studio Code window.
 
 ### Tools Used
 **Visual Studio Code** - For coding the site and making everything work smoothly
+<br>
 **socket.io** - For the server backend and frontend connections and message displays
+<br>
 **Vue.js** - For creating the components and view models seen on the screen
 
 ### Author
