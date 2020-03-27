@@ -18,13 +18,13 @@
 			<p class="userAlert2"></p>
 			<div class="nickCon">
 				<label for="nickName">What Do You Go By?</label>
-				<input  v-model='nickname' type="text" id="nickname" class="nickname">
+				<input maxlength="12"  v-model='nickname' type="text" id="nickname" class="nickname">
 				<div @click="hide"><p>Head In</p></div>
 			</div>
 
 			<form class="inputForm">
 				<p v-if="typing" class="typing">{{typing}} is typing . . .</p>
-				<textarea maxlength="200" v-model="message" class="message mainText" type="text" autocomplete="off" id="textarea"></textarea>
+				<textarea maxlength="200" v-model="message" class="message mainText fixed" type="text" autocomplete="off" id="textarea"></textarea>
 				<h2>(If you would like to put an emoji after your text, please put a space after the emoji, thank you)</h2>
 				<div class="emojiCon">
 				<p class="emoji">😀</p>
